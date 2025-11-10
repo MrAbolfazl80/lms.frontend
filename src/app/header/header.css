@@ -1,0 +1,77 @@
+.custom-header {
+  background: linear-gradient(135deg, #001529, #004b8d);
+  color: #fff;
+  padding: 0 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.logo .emoji {
+  margin-right: 8px;
+  font-size: 24px;
+}
+
+.title {
+  color: #ffffff;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.welcome-text {
+  margin-left: 10px;
+  font-size: 15px;
+  color: #e0e0e0;
+}
+
+button[nz-button] {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #1890ff !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+.logout-btn:hover {
+  background-color: #5989e4 !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .logo {
+    margin-bottom: 8px;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

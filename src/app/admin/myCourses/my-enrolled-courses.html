@@ -1,0 +1,25 @@
+<nz-card nzTitle="دوره‌های من">
+    <nz-table [nzData]="myCourses" [nzFrontPagination]="false" [nzLoading]="loading" [nzTotal]="total"
+        [nzPageIndex]="pageNumber" [nzPageSize]="pageSize" (nzPageIndexChange)="onPageChange($event)">
+        <thead>
+            <tr>
+                <th>تصویر</th>
+                <th>عنوان دوره</th>
+                <th>مدرس</th>
+                <th>هزینه</th>
+                <th>تاریخ ثبت‌نام</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(course of myCourses;track course){
+            <tr>
+                <td><img class="course-img" [src]="'images/defaultCourse.jpg'" alt="Course Image"></td>
+                <td>{{ course.title }}</td>
+                <td>{{ course.teacherName }}</td>
+                <td>{{ course.fee | number:'1.0-0' }} تومان</td>
+                <td>{{ getShamsiDate(course.enrolledAt) | date:'yyyy/MM/dd' }}</td>
+            </tr>
+            }
+        </tbody>
+    </nz-table>
+</nz-card>

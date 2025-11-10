@@ -1,0 +1,54 @@
+<div class="login-page">
+  <div class="login-box">
+    <div class="login-header">
+      <h2>ورود به سیستم</h2>
+      <p>به فروشگاه دوره‌های آموزشی خوش آمدید</p>
+    </div>
+
+    <form nz-form (ngSubmit)="login()">
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group nzPrefixIcon="user">
+            <input
+              nz-input
+              placeholder="نام کاربری"
+              [(ngModel)]="username"
+              name="username"
+              required
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group nzPrefixIcon="lock">
+            <input
+              nz-input
+              type="password"
+              placeholder="رمز عبور"
+              [(ngModel)]="password"
+              name="password"
+              required
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <div class="error-message" *ngIf="errorMessage()">
+        {{ errorMessage() }}
+      </div>
+
+      <button
+        nz-button
+        nzType="primary"
+        class="login-btn"
+        [nzLoading]="loading()"
+        [disabled]="loading()"
+        type="submit"
+      >
+        ورود
+      </button>
+    </form>
+  </div>
+</div>

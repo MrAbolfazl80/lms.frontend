@@ -1,0 +1,44 @@
+.ant-table-placeholder * {
+  display: none !important;
+}
+.rtl-ag-grid {
+  direction: rtl;
+  text-align: right;
+}
+.admin-courses {
+  max-width: 1265px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: "Vazirmatn", sans-serif;
+}
+.admin-courses h2 {
+  text-align: center;
+  color: #1890ff;
+  margin-bottom: 24px;
+}
+
+.pagination-container {
+  margin-top: 16px;
+}
+.ag-theme-alpine.rtl {
+  direction: rtl;
+}
+
+
+.ag-theme-alpine.rtl .ag-cell {
+  text-align: right;
+}
+
+
+.ag-theme-alpine.rtl .ag-header-cell-label {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.ag-theme-alpine.rtl .ag-header-cell-label {
+  justify-content: flex-end;
+  text-align: right;
+}

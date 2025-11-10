@@ -1,0 +1,29 @@
+<nz-sider [nzCollapsible]="false" [(nzCollapsed)]="isCollapsed" nzWidth="300" class="sidebar">
+  @if(isAdmin){
+  <div class="logo">داشبورد ادمین</div>
+  }@else{
+  <div class="logo">پنل کاربری</div>
+  }
+  <ul nz-menu nzTheme="dark" nzMode="inline">
+    <li nz-menu-item [routerLink]="['/']">
+      <nz-icon nzType="arrow-left"></nz-icon>
+      <span>بازگشت به اپلیکیشن</span>
+    </li>
+    <li nz-menu-item [routerLink]="['/' + baseRoute + '/home']">
+      <nz-icon nzType="home"></nz-icon>
+      <span>خانه</span>
+    </li>
+    @if(isAdmin){
+    <li nz-menu-item [routerLink]="['/admin/courses']">
+      <nz-icon nzType="book"></nz-icon>
+      <span>دوره‌ها</span>
+    </li>
+    }
+    <li nz-menu-item [routerLink]="['/' + baseRoute + '/myCourses']">
+      <nz-icon nzType="book"></nz-icon>
+      <span>دوره های ثبت نام شده</span>
+    </li>
+
+
+  </ul>
+</nz-sider>

@@ -1,0 +1,30 @@
+      :host {
+        display: block;
+        min-height: 100vh;
+        direction: rtl;
+      }
+
+      .main-layout {
+        margin-right: 200px;
+        min-height: 100vh;
+      }
+
+      nz-header {
+        background: #fff;
+        padding: 0;
+      }
+
+      nz-content {
+        margin: 16px;
+      }
+
+      .inner-content {
+        padding: 24px;
+        background: #fff;
+        border-radius: 8px;
+        min-height: 360px;
+      }
+
+      nz-footer {
+        text-align: center;
+      }

@@ -1,0 +1,52 @@
+<form [formGroup]="form" nz-form nzLayout="vertical" class="course-form">
+
+  <nz-form-item>
+    <nz-form-label>عنوان</nz-form-label>
+    <nz-form-control [nzErrorTip]="isInvalid('title') ? 'عنوان الزامی است' : undefined">
+      <input nz-input formControlName="title" placeholder="عنوان دوره">
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>مدرس</nz-form-label>
+    <nz-form-control [nzErrorTip]="isInvalid('teacherName') ? 'نام مدرس الزامی است' : undefined">
+      <input nz-input formControlName="teacherName" placeholder="نام مدرس">
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>ظرفیت</nz-form-label>
+    <nz-form-control [nzErrorTip]="isInvalid('capacity') ? 'ظرفیت معتبر وارد کنید' : undefined">
+      <nz-input-number formControlName="capacity" [nzMin]="1" style="width:100%"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>هزینه (تومان)</nz-form-label>
+    <nz-form-control [nzErrorTip]="isInvalid('fee') ? 'مقدار معتبر وارد کنید' : undefined">
+      <nz-input-number formControlName="fee" [nzMin]="0" style="width:100%"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>تاریخ شروع</nz-form-label>
+    <nz-form-control [nzErrorTip]="isInvalid('startDate') ? 'تاریخ شروع الزامی است' : undefined">
+      <nz-date-picker formControlName="startDate" style="width:100%"></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>تاریخ پایان</nz-form-label>
+    <nz-form-control [nzErrorTip]="isInvalid('endDate') ? 'تاریخ پایان الزامی است' : undefined">
+      <nz-date-picker formControlName="endDate" style="width:100%"></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>توضیحات</nz-form-label>
+    <nz-form-control [nzErrorTip]="isInvalid('description') ? 'توضیحات الزامی است' : undefined">
+      <textarea nz-input formControlName="description" placeholder="توضیحات دوره" rows="3">
+    </textarea>
+    </nz-form-control>
+  </nz-form-item>
+</form>

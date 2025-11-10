@@ -1,0 +1,18 @@
+.course-form {
+  direction: rtl;
+  text-align: right;
+}
+
+.course-form nz-form-item {
+  margin-bottom: 16px;
+}
+
+.course-form input,
+.course-form textarea {
+  text-align: right;
+}
+
+.course-form nz-input-number,
+.course-form nz-date-picker {
+  width: 100%;
+}
