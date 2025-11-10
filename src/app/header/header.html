@@ -6,6 +6,11 @@
       </div>
 
       <div class="nav">
+        @if(isLoginPage()){
+        <button nz-button nzType="primary" class="login-btn" [routerLink]="['/']">
+          صفحه اصلی
+        </button>
+        }
         @if(userName()){
         <ng-container>
           <span class="welcome-text">خوش آمدید، {{ userName() }}</span>

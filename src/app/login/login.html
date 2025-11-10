@@ -9,44 +9,30 @@
       <nz-form-item>
         <nz-form-control>
           <nz-input-group nzPrefixIcon="user">
-            <input
-              nz-input
-              placeholder="نام کاربری"
-              [(ngModel)]="username"
-              name="username"
-              required
-            />
+            <input nz-input placeholder="نام کاربری" [(ngModel)]="username" name="username" required />
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
 
       <nz-form-item>
         <nz-form-control>
-          <nz-input-group nzPrefixIcon="lock">
-            <input
-              nz-input
-              type="password"
-              placeholder="رمز عبور"
-              [(ngModel)]="password"
-              name="password"
-              required
-            />
+          <nz-input-group [nzSuffix]="suffixTemplate" nzPrefixIcon="lock">
+            <input nz-input [type]="showPassword ? 'text' : 'password'" placeholder="رمز عبور" [(ngModel)]="password"
+              name="password" required />
           </nz-input-group>
+          <ng-template #suffixTemplate>
+            <i nz-icon [nzType]="showPassword ? 'eye-invisible' : 'eye'" (click)="togglePassword()"
+              style="cursor: pointer"></i>
+          </ng-template>
         </nz-form-control>
       </nz-form-item>
+
 
       <div class="error-message" *ngIf="errorMessage()">
         {{ errorMessage() }}
       </div>
 
-      <button
-        nz-button
-        nzType="primary"
-        class="login-btn"
-        [nzLoading]="loading()"
-        [disabled]="loading()"
-        type="submit"
-      >
+      <button nz-button nzType="primary" class="login-btn" [nzLoading]="loading()" [disabled]="loading()" type="submit">
         ورود
       </button>
     </form>
