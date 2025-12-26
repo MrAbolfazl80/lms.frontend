@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AppConfigService } from './myAppConfigService';
-
+import { BaseResponse } from '../models/base-response.model';
+import { PagedResponse } from '../models/paged-response-model';
 export interface AdminCourseItem {
   id: number;
   title: string;
@@ -20,12 +21,6 @@ export interface EnrolledCourseItem {
   fee: number;
   teacherName: string;
   enrolledAt: string;
-}
-export interface PagedCourseResponse<T> {
-  items: T[];
-  totalCount: number;
-  pageNumber: number;
-  pageSize: number;
 }
 export interface AdminCreateCourseRequest {
   title: string;
@@ -57,12 +52,6 @@ export interface CourseItem {
   endDate: string;
   isEnrolledByCurrentUser: boolean;
 }
-
-export interface BaseResponse<T> {
-  success: boolean;
-  error: string | null;
-  data: T;
-}
 @Injectable({
   providedIn: 'root'
 })
@@ -71,21 +60,21 @@ export class CoursesService {
   constructor(private http: HttpClient, private appConfig: AppConfigService) { }
 
   getAvailableCourses(pageNumber: number, pageSize: number)
-    : Observable<BaseResponse<PagedCourseResponse<CourseItem>>> {
-    return this.http.get<BaseResponse<PagedCourseResponse<CourseItem>>>(
+    : Observable<BaseResponse<PagedResponse<CourseItem>>> {
+    return this.http.get<BaseResponse<PagedResponse<CourseItem>>>(
       `${this.appConfig.baseUrl}/course/GetAvailableCourses?pageNumber=${pageNumber}&pageSize=${pageSize}`
     );
   }
 
   getAllCoursesForAdmin(pageNumber: number, pageSize: number)
-    : Observable<BaseResponse<PagedCourseResponse<AdminCourseItem>>> {
-    return this.http.get<BaseResponse<PagedCourseResponse<AdminCourseItem>>>(
+    : Observable<BaseResponse<PagedResponse<AdminCourseItem>>> {
+    return this.http.get<BaseResponse<PagedResponse<AdminCourseItem>>>(
       `${this.appConfig.baseUrl}/course/GetAll?pageNumber=${pageNumber}&pageSize=${pageSize}`
     );
   }
   getEnrolledCoursesForAdmin(pageNumber: number, pageSize: number)
-    : Observable<BaseResponse<PagedCourseResponse<EnrolledCourseItem>>> {
-    return this.http.get<BaseResponse<PagedCourseResponse<EnrolledCourseItem>>>(
+    : Observable<BaseResponse<PagedResponse<EnrolledCourseItem>>> {
+    return this.http.get<BaseResponse<PagedResponse<EnrolledCourseItem>>>(
       `${this.appConfig.baseUrl}/course/getEnrolledCourses?pageNumber=${pageNumber}&pageSize=${pageSize}`
     );
   }

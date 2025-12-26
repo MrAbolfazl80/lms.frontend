@@ -14,6 +14,10 @@
       <span>خانه</span>
     </li>
     @if(isAdmin){
+    <li nz-menu-item [routerLink]="['/admin/users']">
+      <nz-icon nzType="book"></nz-icon>
+      <span>کاربران</span>
+    </li>
     <li nz-menu-item [routerLink]="['/admin/courses']">
       <nz-icon nzType="book"></nz-icon>
       <span>دوره‌ها</span>

@@ -1,0 +1,26 @@
+<form nz-form [formGroup]="validateForm" class="login-form">
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-wrapper>
+                <nz-icon nzInputPrefix nzType="user" />
+                <input type="text" nz-input formControlName="username" placeholder="نام کاربری" />
+            </nz-input-wrapper>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-wrapper>
+                <nz-icon nzInputPrefix nzType="user" />
+                <input type="text" nz-input formControlName="role" placeholder="نقش" />
+            </nz-input-wrapper>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-password>
+                <nz-icon nzInputPrefix nzType="lock" />
+                <input nz-input formControlName="password" placeholder="کلمه عبور" />
+            </nz-input-password>
+        </nz-form-control>
+    </nz-form-item>
+</form>

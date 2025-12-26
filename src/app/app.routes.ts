@@ -7,6 +7,7 @@ import { MainLayout } from './layouts/main/main-layout';
 import { AdminHomeComponent } from './admin/home/admin-home';
 import { MyCoursesComponent } from './admin/myCourses/my-enrolled-courses';
 import { AuthAccess } from './services/authorization.service';
+import { AdminUsersComponent } from './admin/users/admin-users';
 
 export const routes: Routes = [
   {
@@ -26,13 +27,13 @@ export const routes: Routes = [
         path: 'courses',
         component: AdminCoursesComponent,
         canActivate: [AuthAccess],
-        data: { roles: ['admin'] } 
+        data: { roles: ['admin'] }
       },
       {
         path: 'home',
         component: AdminHomeComponent,
         canActivate: [AuthAccess],
-        data: { roles: ['admin','student'] } 
+        data: { roles: ['admin', 'student'] }
       },
       {
         path: 'myCourses',
@@ -40,10 +41,16 @@ export const routes: Routes = [
         canActivate: [AuthAccess],
         data: { roles: ['admin', 'student'] }
       },
+      {
+        path: 'users',
+        component: AdminUsersComponent,
+        canActivate: [AuthAccess],
+        data: { roles: ['admin'] }
+      },
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]
   },
-    {
+  {
     path: 'user',
     component: AdminLayout,
     children: [
@@ -51,7 +58,7 @@ export const routes: Routes = [
         path: 'home',
         component: AdminHomeComponent,
         canActivate: [AuthAccess],
-        data: { roles: ['student'] } 
+        data: { roles: ['student'] }
       },
       {
         path: 'myCourses',

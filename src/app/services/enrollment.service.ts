@@ -13,6 +13,6 @@ interface EnrollResponse{
 export class EnrollmentService{
     constructor(private http:HttpClient,private appConfig:AppConfigService){}
     enroll(courseId:number):Observable<EnrollResponse>{
-        return this.http.post<EnrollResponse>(`${this.appConfig.baseUrl+'/Enrollment'}/${courseId}`, null);
+        return this.http.post<EnrollResponse>(`${this.appConfig.baseUrl+'/Enrollment/Enroll'}/${courseId}`, null);
     }
 }

@@ -50,7 +50,7 @@ export class AdminCoursesComponent {
       }
     },
     {
-      maxWidth:200,
+      maxWidth: 200,
       headerName: 'توضیحات',
       field: 'description',
       sortable: false,
@@ -67,7 +67,7 @@ export class AdminCoursesComponent {
       valueFormatter: (params: ValueFormatterParams<AdminCourseItem>) => this.getShamsiDate(params.value)
     },
     {
-      maxWidth:130,
+      maxWidth: 130,
       sortable: false,
       headerName: 'تاریخ شروع',
       field: 'startDate',
@@ -86,7 +86,7 @@ export class AdminCoursesComponent {
     { headerName: 'ظرفیت', field: 'capacity', sortable: false, maxWidth: 80 },
     { headerName: 'هزینه ثبت نام', field: 'fee', sortable: false, maxWidth: 110 },
     { headerName: 'مدرس', field: 'teacherName', sortable: false, maxWidth: 120 },
-    { headerName: 'عنوان', field: 'title', sortable: false,maxWidth:160 }
+    { headerName: 'عنوان', field: 'title', sortable: false, maxWidth: 160 }
   ];
 
 
@@ -111,6 +111,7 @@ export class AdminCoursesComponent {
     };
 
     params.api.setGridOption('datasource', dataSource);
+    params.api.sizeColumnsToFit();
   }
 
 
@@ -179,52 +180,52 @@ export class AdminCoursesComponent {
       ]
     });
   }
-editCourse(course: AdminCourseItem): void {
-  const modalRef = this.modal.create({
-    nzTitle: 'ویرایش دوره',
-    nzContent: UpsertCourseFormComponent,
-    nzFooter: [
-      {
-        label: 'انصراف',
-        onClick: () => modalRef.destroy()
-      },
-      {
-        label: 'ثبت تغییرات',
-        type: 'primary',
-        onClick: () => {
-          const instance = modalRef.getContentComponent() as UpsertCourseFormComponent;
+  editCourse(course: AdminCourseItem): void {
+    const modalRef = this.modal.create({
+      nzTitle: 'ویرایش دوره',
+      nzContent: UpsertCourseFormComponent,
+      nzFooter: [
+        {
+          label: 'انصراف',
+          onClick: () => modalRef.destroy()
+        },
+        {
+          label: 'ثبت تغییرات',
+          type: 'primary',
+          onClick: () => {
+            const instance = modalRef.getContentComponent() as UpsertCourseFormComponent;
 
-          if (instance.form.invalid) {
-            instance.form.markAllAsTouched();
-            return;
+            if (instance.form.invalid) {
+              instance.form.markAllAsTouched();
+              return;
+            }
+
+            this.coursesService.updateCourseForAdmin(course.id, instance.form.value).subscribe({
+              next: (res) => {
+                if (res.success) {
+                  this.message.success('ویرایش دوره با موفقیت انجام شد');
+                  setTimeout(() => this.gridApi.refreshInfiniteCache(), 0);
+                  modalRef.destroy();
+                } else {
+                  this.message.error(res.error ?? 'خطا در ویرایش دوره');
+                }
+              },
+              error: () => this.message.error('خطا در ویرایش دوره')
+            });
           }
-
-          this.coursesService.updateCourseForAdmin(course.id, instance.form.value).subscribe({
-            next: (res) => {
-              if (res.success) {
-                this.message.success('ویرایش دوره با موفقیت انجام شد');
-                setTimeout(() => this.gridApi.refreshInfiniteCache(), 0);
-                modalRef.destroy();
-              } else {
-                this.message.error(res.error ?? 'خطا در ویرایش دوره');
-              }
-            },
-            error: () => this.message.error('خطا در ویرایش دوره')
-          });
         }
-      }
-    ]
-  });
+      ]
+    });
 
-  const instance = modalRef.getContentComponent() as UpsertCourseFormComponent;
-  instance.form.patchValue({
-    title: course.title,
-    teacherName: course.teacherName,
-    capacity: course.capacity,
-    fee: course.fee,
-    startDate: course.startDate,
-    endDate: course.endDate,
-    description: course.description
-  });
-}
+    const instance = modalRef.getContentComponent() as UpsertCourseFormComponent;
+    instance.form.patchValue({
+      title: course.title,
+      teacherName: course.teacherName,
+      capacity: course.capacity,
+      fee: course.fee,
+      startDate: course.startDate,
+      endDate: course.endDate,
+      description: course.description
+    });
+  }
 }
