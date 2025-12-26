@@ -1,0 +1,29 @@
+<nz-card class="course-card rounded-xl shadow-lg hover:shadow-2xl overflow-hidden" nzHoverable
+  [nzCover]="coverTemplate">
+
+  <ng-template #coverTemplate>
+    <img class="w-full h-48 object-cover" [src]="'images/defaultCourse.jpg'" alt="Course Image">
+  </ng-template>
+
+  <nz-card-meta [nzTitle]="course.title" [nzDescription]="'مدرس: ' + course.teacherName" class="mb-2">
+  </nz-card-meta>
+
+  <div class="card-footer mt-4 flex flex-col gap-2 text-sm">
+    <span>ظرفیت: {{ course.capacity }}</span>
+    <span>باقی‌مانده: {{ course.remainingSeats }}</span>
+
+    <ng-container *ngIf="course.isEnrolledByCurrentUser; else notEnrolled">
+      <span class="text-green-600 font-bold">شما در این دوره ثبت‌نام کرده‌اید</span>
+    </ng-container>
+
+    <ng-template #notEnrolled>
+      <button (click)="onEnroll()" nz-button nzType="primary"
+        [disabled]="!course.isOpenForEnrollment || course.remainingSeats === 0" class="w-full">
+        {{ course.remainingSeats > 0 ? (course.isOpenForEnrollment ? 'ثبت‌نام' : 'بسته') : 'تکمیل ظرفیت' }}
+      </button>
+    </ng-template>
+    <button nz-button nzType="default" class="w-full" [routerLink]="['/courses-detail', course.id]">
+      مشاهده جزئیات
+    </button>
+  </div>
+</nz-card>

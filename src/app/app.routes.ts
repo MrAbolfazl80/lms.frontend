@@ -8,6 +8,7 @@ import { AdminHomeComponent } from './admin/home/admin-home';
 import { MyCoursesComponent } from './admin/myCourses/my-enrolled-courses';
 import { AuthAccess } from './services/authorization.service';
 import { AdminUsersComponent } from './admin/users/admin-users';
+import { CoursesDetailComponent } from './courses/courses-detail/courses-detail';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,7 @@ export const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'courses', component: CoursesComponent },
+      { path: 'courses-detail/:courseId', component: CoursesDetailComponent },
       { path: '', redirectTo: '/courses', pathMatch: 'full' }
     ]
   },

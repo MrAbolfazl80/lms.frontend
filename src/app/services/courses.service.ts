@@ -59,6 +59,12 @@ export class CoursesService {
 
   constructor(private http: HttpClient, private appConfig: AppConfigService) { }
 
+  getCourseById(courseId: number)
+    : Observable<BaseResponse<CourseItem>> {
+    return this.http.get<BaseResponse<CourseItem>>(
+      `${this.appConfig.baseUrl}/course/getById/${courseId}`
+    );
+  }
   getAvailableCourses(pageNumber: number, pageSize: number)
     : Observable<BaseResponse<PagedResponse<CourseItem>>> {
     return this.http.get<BaseResponse<PagedResponse<CourseItem>>>(

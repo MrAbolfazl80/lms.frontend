@@ -3,34 +3,10 @@
 
   <div class="courses-grid">
     @for(course of courses;track course){
-    <nz-card class="course-card" nzHoverable [nzCover]="coverTemplate">
-
-      <ng-template #coverTemplate>
-        <img [src]="'images/defaultCourse.jpg'" alt="Course Image">
-      </ng-template>
-
-      <nz-card-meta [nzTitle]="course.title" [nzDescription]="'مدرس: ' + course.teacherName">
-      </nz-card-meta>
-
-      <div class="card-footer">
-        <span>ظرفیت: {{ course.capacity }}</span>
-        <span>باقی‌مانده: {{ course.remainingSeats }}</span>
-        @if(course.isEnrolledByCurrentUser){
-        <span style="color: green; font-weight: bold;">شما در این دوره ثبت‌نام کرده‌اید</span>
-        }
-        @else if(course.remainingSeats>0){
-        <button (click)="enroll(course.id)" nz-button nzType="primary" [disabled]="!course.isOpenForEnrollment">
-          {{ course.isOpenForEnrollment ? 'ثبت‌نام' : 'بسته' }}
-        </button>       
-        }@else{
-        <button (click)="enroll(course.id)" nz-button  [disabled]="true">
-          تکمیل ظرفیت
-        </button>
-        }
-        
-
-      </div>
-    </nz-card>
+    <courses-card
+    [course]="course"
+    (enrollClicked)="handleEnroll($event)">
+    </courses-card>
     }
 
   </div>

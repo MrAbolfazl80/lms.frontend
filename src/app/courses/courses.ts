@@ -2,16 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzCardModule } from 'ng-zorro-antd/card';
-import { NzButtonModule } from 'ng-zorro-antd/button';
 import { CoursesService, CourseItem } from '../services/courses.service';
 import { ChangeDetectorRef } from '@angular/core';
 import { EnrollmentService } from '../services/enrollment.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
-
+import { CoursesCardComponent } from './courses-card/courses-card';
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [CommonModule, NzCardModule, NzButtonModule, NzPaginationModule],
+  imports: [CommonModule, NzCardModule, NzPaginationModule,CoursesCardComponent],
   templateUrl: './courses.html',
   styleUrls: ['./courses.less']
 })
@@ -50,7 +49,7 @@ export class CoursesComponent implements OnInit {
     this.pageNumber = page;
     this.loadCourses();
   }
-  enroll(courseId: number): void {
+  handleEnroll(courseId: number): void {
     this.enrollmentService.enroll(courseId).subscribe({
       next: (res) => {
         if (res.data) {
