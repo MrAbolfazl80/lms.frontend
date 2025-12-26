@@ -11,7 +11,7 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
   standalone: true,
   imports: [RouterOutlet, AdminSidebarComponent,NzBreadCrumbModule, NzLayoutModule],
   templateUrl: './admin-layout.html',
-  styleUrls: ['./admin-layout.css']
+  styleUrls: ['./admin-layout.less']
 })
 export class AdminLayout {
   isCollapsed = false;

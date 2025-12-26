@@ -9,7 +9,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
     standalone: true,
     imports: [ReactiveFormsModule, NzButtonModule, NzCheckboxModule, NzFormModule, NzInputModule],
     templateUrl: './admin-users-upsert.html',
-    styleUrl: './admin-users-upsert.css'
+    styleUrl: './admin-users-upsert.less'
 })
 export class AdminUserUpsertComponent{
       private fb = inject(NonNullableFormBuilder);

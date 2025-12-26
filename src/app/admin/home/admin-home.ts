@@ -5,7 +5,7 @@ import { AuthService } from "../../services/auth.service";
     standalone:true,
     imports:[],
     templateUrl:'./admin-home.html',
-    styleUrls:['./admin-home.css']
+    styleUrls:['./admin-home.less']
 })
 export class AdminHomeComponent{
       username: string | null = '';

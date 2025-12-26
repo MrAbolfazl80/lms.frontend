@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [NzButtonModule, NzLayoutModule, RouterModule],
   templateUrl: './header.html',
-  styleUrl: './header.css',
+  styleUrl: './header.less',
 })
 export class HeaderComponent {
   userName = signal<string | null>(null);

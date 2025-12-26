@@ -14,7 +14,7 @@ import { UpsertCourseFormComponent } from './Upsert/admin-upsert-course-form';
   standalone: true,
   imports: [CommonModule, AgGridModule, NzButtonModule, NzModalModule],
   templateUrl: './admin-courses.html',
-  styleUrls: ['./admin-courses.css']
+  styleUrls: ['./admin-courses.less']
 })
 export class AdminCoursesComponent {
   constructor(

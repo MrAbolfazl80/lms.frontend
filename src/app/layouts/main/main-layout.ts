@@ -9,7 +9,7 @@ import { HeaderComponent } from '../../header/header';
   standalone:true,
   imports: [RouterOutlet,HeaderComponent],
   templateUrl: './main-layout.html',
-  styleUrls: ['./main-layout.css']
+  styleUrls: ['./main-layout.less']
 })
 export class MainLayout {
   protected readonly title = signal('SimpleLmsApp');

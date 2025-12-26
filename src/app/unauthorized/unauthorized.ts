@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule, NzResultModule, NzButtonModule],
   templateUrl: './unauthorized.html',
-  styleUrl: './unauthorized.css',
+  styleUrl: './unauthorized.less',
 })
 export class UnauthorizedComponent {
   constructor(private router: Router) {}

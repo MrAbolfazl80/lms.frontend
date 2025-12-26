@@ -13,7 +13,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
   standalone: true,
   imports: [CommonModule, NzCardModule, NzButtonModule, NzPaginationModule],
   templateUrl: './courses.html',
-  styleUrls: ['./courses.css']
+  styleUrls: ['./courses.less']
 })
 export class CoursesComponent implements OnInit {
   courses: CourseItem[] = [];

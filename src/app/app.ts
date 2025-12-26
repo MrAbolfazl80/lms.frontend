@@ -6,7 +6,7 @@ import { routes } from './app.routes';
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrls: ['./app.css']
+  styleUrls: ['./app.less']
 })
 export class App {
   protected readonly title = signal('SimpleLmsApp');

@@ -10,7 +10,7 @@ import moment from 'jalali-moment';
     standalone: true,
     imports: [CommonModule, NzTableModule, NzCardModule],
     templateUrl: './my-enrolled-courses.html',
-    styleUrls: ['./my-enrolled-courses.css']
+    styleUrls: ['./my-enrolled-courses.less']
 })
 export class MyCoursesComponent implements OnInit {
 

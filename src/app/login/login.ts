@@ -20,7 +20,7 @@ import { AuthService } from '../services/auth.service';
     NzIconModule
   ],
   templateUrl: './login.html',
-  styleUrl: './login.css',
+  styleUrl: './login.less',
 })
 export class LoginComponent {
   private _username = signal('');

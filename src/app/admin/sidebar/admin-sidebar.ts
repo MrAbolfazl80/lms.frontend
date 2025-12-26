@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [NzMenuModule, RouterModule, NzIconModule, NzLayoutModule],
   templateUrl: './admin-sidebar.html',
-  styleUrls: ['./admin-sidebar.css']
+  styleUrls: ['./admin-sidebar.less']
 })
 export class AdminSidebarComponent {
   isCollapsed = false;

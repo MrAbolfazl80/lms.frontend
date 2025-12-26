@@ -11,7 +11,7 @@ import { NzMessageService } from "ng-zorro-antd/message";
     standalone: true,
     imports: [CommonModule, AgGridModule, NzButtonModule, NzModalModule],
     templateUrl: './admin-users.html',
-    styleUrl: './admin-users.css'
+    styleUrl: './admin-users.less'
 })
 export class AdminUsersComponent {
     constructor(private userService: UsersServices, private message: NzMessageService) { }

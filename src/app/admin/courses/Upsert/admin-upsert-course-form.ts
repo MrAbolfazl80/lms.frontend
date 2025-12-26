@@ -19,7 +19,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
     NzFormModule
   ],
   templateUrl: './admin-upsert-course-form.html',
-  styleUrls: ['./admin-upsert-course-form.css']
+  styleUrls: ['./admin-upsert-course-form.less']
 })
 export class UpsertCourseFormComponent {
   form: FormGroup;
