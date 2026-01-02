@@ -1,35 +1,50 @@
 .course-card {
-  @apply max-w-7xl mx-auto mt-10 mb-10 bg-white rounded-2xl shadow-2xl overflow-hidden px-4 sm:px-6 lg:px-8;
+  @apply bg-slate-50 rounded-xl my-6 shadow-sm;
 }
 
-.course-card-image {
-  @apply relative w-full sm:w-2/3 lg:w-1/2 mx-auto h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-lg;
+.course-wrapper {
+  @apply flex flex-row-reverse items-stretch overflow-hidden rounded-xl;
 }
 
-.course-card-image img {
-  @apply w-full h-full object-cover transition-transform duration-1000 hover:scale-105;
+.course-content {
+  @apply w-1/2 text-right flex flex-col relative p-6;
 }
 
-.course-card-content {
-  @apply p-6 text-right;
+.course-title {
+  @apply font-semibold text-2xl mb-4 leading-relaxed;
 }
 
-.course-card-title {
-  @apply text-3xl sm:text-4xl font-bold text-gray-900 mb-6 text-center sm:text-right;
+.course-status {
+  @apply mb-6;
 }
 
-.course-info {
-  @apply grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 text-gray-700;
+.status-badge {
+  @apply mr-2 inline-block px-3 py-1 rounded-full text-sm font-medium;
 }
 
-.info-group {
-  @apply space-y-2;
+.status-open {
+  @apply bg-green-100 text-green-800;
 }
 
-.badge {
-  @apply inline-block px-2 py-1 text-sm rounded-full;
+.status-closed {
+  @apply bg-red-100 text-red-800;
 }
 
-.btn-back {
-  @apply w-full sm:w-auto px-6 py-3 bg-white border border-blue-600 text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition duration-300;
+.course-dates {
+  @apply absolute bottom-6 right-6 text-sm text-gray-600 space-y-1;
+}
+
+.back-button {
+  @apply flex items-center gap-2 px-5 py-2.5 rounded-lg
+         bg-slate-800 text-white text-sm font-medium
+         transition-all duration-200
+         hover:bg-slate-700 hover:shadow-md;
+}
+
+.course-image {
+  @apply w-1/2;
+}
+
+.course-image img {
+  @apply w-full h-full object-cover;
 }
